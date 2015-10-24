@@ -1,0 +1,340 @@
+./kma_bud: Running in correctness mode
+
+command: REQUEST 0 35
+
+[------------------------Begin findFreeBlk 35 --------------------------]
+index = 1 
+index = 2 
+index = 3 
+index = 4 
+index = 5 
+index = 6 
+index = 7 
+Get new page!!!!!
+
+[---------------------Begin initializePage-----------------------------]
+New page struct begin at : 0xa7fdc0,  page->ptr->nextFree = 0x7f5ccbbd6000
+ ++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 4096   index = 7 
+    1 header[7] == NULL, newblk 4096 added to 0x7f5ccbbd4000
+freeListHeader point to: 0x7f5ccbbd4000 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd5000,  size: 4096   index = 7 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 4096  addr: 0x7f5ccbbd4000
+[7][1] size = 4096  addr: 0x7f5ccbbd5000
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+!!!!!!!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 0  addr: 0x7f5ccbbd4000
+---------------------------end --------------------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 0  addr: 0x7f5ccbbd4000
+---------------------------end --------------------------------
+
+[---------------------END initializePage-----------------------------]
+[------------------------Begin findFreeBlk 256 --------------------------]
+index = 3 
+index = 4 
+index = 5 
+index = 6 
+index = 7 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 4096   index = 6 
+    1 header[6] == NULL, newblk 4096 added to 0x7f5ccbbd4000
+freeListHeader point to: 0x7f5ccbbd4000 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd5000,  size: 4096   index = 6 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 4096  addr: 0x7f5ccbbd4000
+[6][1] size = 4096  addr: 0x7f5ccbbd5000
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 4096  addr: 0x7f5ccbbd4000
+[7][1] size = 4096  addr: 0x7f5ccbbd5000
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 4096  addr: 0x7f5ccbbd4000
+[6][1] size = 4096  addr: 0x7f5ccbbd5000
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 4096  addr: 0x7f5ccbbd4000
+[7][1] size = 4096  addr: 0x7f5ccbbd5000
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+index = 3 
+index = 4 
+index = 5 
+index = 6 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 2048   index = 5 
+    1 header[5] == NULL, newblk 2048 added to 0x7f5ccbbd4000
+freeListHeader point to: 0x7f5ccbbd4000 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4800,  size: 2048   index = 5 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 2048  addr: 0x7f5ccbbd4000
+[5][1] size = 2048  addr: 0x7f5ccbbd4800
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 2048  addr: 0x7f5ccbbd4000
+[6][1] size = 2048  addr: 0x7f5ccbbd4800
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 2048  addr: 0x7f5ccbbd4000
+[7][1] size = 2048  addr: 0x7f5ccbbd4800
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 2048  addr: 0x7f5ccbbd4000
+[5][1] size = 2048  addr: 0x7f5ccbbd4800
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 2048  addr: 0x7f5ccbbd4000
+[6][1] size = 2048  addr: 0x7f5ccbbd4800
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 2048  addr: 0x7f5ccbbd4000
+[7][1] size = 2048  addr: 0x7f5ccbbd4800
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+index = 3 
+index = 4 
+index = 5 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 1024   index = 4 
+    1 header[4] == NULL, newblk 1024 added to 0x7f5ccbbd4000
+freeListHeader point to: 0x7f5ccbbd4000 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4400,  size: 1024   index = 4 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 1024  addr: 0x7f5ccbbd4000
+[4][1] size = 1024  addr: 0x7f5ccbbd4400
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 1024  addr: 0x7f5ccbbd4000
+[5][1] size = 1024  addr: 0x7f5ccbbd4400
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 1024  addr: 0x7f5ccbbd4000
+[6][1] size = 1024  addr: 0x7f5ccbbd4400
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 1024  addr: 0x7f5ccbbd4000
+[7][1] size = 1024  addr: 0x7f5ccbbd4400
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 1024  addr: 0x7f5ccbbd4000
+[4][1] size = 1024  addr: 0x7f5ccbbd4400
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 1024  addr: 0x7f5ccbbd4000
+[5][1] size = 1024  addr: 0x7f5ccbbd4400
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 1024  addr: 0x7f5ccbbd4000
+[6][1] size = 1024  addr: 0x7f5ccbbd4400
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 1024  addr: 0x7f5ccbbd4000
+[7][1] size = 1024  addr: 0x7f5ccbbd4400
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+index = 3 
+index = 4 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 512   index = 3 
+    1 header[3] == NULL, newblk 512 added to 0x7f5ccbbd4000
+freeListHeader point to: 0x7f5ccbbd4000 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 512   index = 3 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer 0x7f5ccbbd4000
+[3][0] size = 512  addr: 0x7f5ccbbd4000
+[3][1] size = 512  addr: 0x7f5ccbbd4200
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 512  addr: 0x7f5ccbbd4000
+[4][1] size = 512  addr: 0x7f5ccbbd4200
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 512  addr: 0x7f5ccbbd4000
+[5][1] size = 512  addr: 0x7f5ccbbd4200
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 512  addr: 0x7f5ccbbd4000
+[6][1] size = 512  addr: 0x7f5ccbbd4200
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 512  addr: 0x7f5ccbbd4000
+[7][1] size = 512  addr: 0x7f5ccbbd4200
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer 0x7f5ccbbd4000
+[3][0] size = 512  addr: 0x7f5ccbbd4000
+[3][1] size = 512  addr: 0x7f5ccbbd4200
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 512  addr: 0x7f5ccbbd4000
+[4][1] size = 512  addr: 0x7f5ccbbd4200
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 512  addr: 0x7f5ccbbd4000
+[5][1] size = 512  addr: 0x7f5ccbbd4200
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 512  addr: 0x7f5ccbbd4000
+[6][1] size = 512  addr: 0x7f5ccbbd4200
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 512  addr: 0x7f5ccbbd4000
+[7][1] size = 512  addr: 0x7f5ccbbd4200
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+[------------------------Begin findFreeBlk 35 --------------------------]
+index = 1 
+index = 2 
+index = 3 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 256   index = 2 
+    1 header[2] == NULL, newblk 256 added to 0x7f5ccbbd4200
+freeListHeader point to: 0x7f5ccbbd4200 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4300,  size: 256   index = 2 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7f5ccbbd4200
+[2][0] size = 256  addr: 0x7f5ccbbd4200
+[2][1] size = 256  addr: 0x7f5ccbbd4300
+3 0 pointer 0x7f5ccbbd4200
+[3][0] size = 256  addr: 0x7f5ccbbd4200
+[3][1] size = 256  addr: 0x7f5ccbbd4300
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 512  addr: 0x7f5ccbbd4000
+[4][1] size = 256  addr: 0x7f5ccbbd4200
+[4][2] size = 256  addr: 0x7f5ccbbd4300
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 512  addr: 0x7f5ccbbd4000
+[5][1] size = 256  addr: 0x7f5ccbbd4200
+[5][2] size = 256  addr: 0x7f5ccbbd4300
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 512  addr: 0x7f5ccbbd4000
+[6][1] size = 256  addr: 0x7f5ccbbd4200
+[6][2] size = 256  addr: 0x7f5ccbbd4300
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 512  addr: 0x7f5ccbbd4000
+[7][1] size = 256  addr: 0x7f5ccbbd4200
+[7][2] size = 256  addr: 0x7f5ccbbd4300
+---------------------------end --------------------------------
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7f5ccbbd4200
+[2][0] size = 256  addr: 0x7f5ccbbd4200
+[2][1] size = 256  addr: 0x7f5ccbbd4300
+3 0 pointer 0x7f5ccbbd4200
+[3][0] size = 256  addr: 0x7f5ccbbd4200
+[3][1] size = 256  addr: 0x7f5ccbbd4300
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 512  addr: 0x7f5ccbbd4000
+[4][1] size = 256  addr: 0x7f5ccbbd4200
+[4][2] size = 256  addr: 0x7f5ccbbd4300
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 512  addr: 0x7f5ccbbd4000
+[5][1] size = 256  addr: 0x7f5ccbbd4200
+[5][2] size = 256  addr: 0x7f5ccbbd4300
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 512  addr: 0x7f5ccbbd4000
+[6][1] size = 256  addr: 0x7f5ccbbd4200
+[6][2] size = 256  addr: 0x7f5ccbbd4300
+7 0 pointer 0x7f5ccbbd4000
+[7][0] size = 512  addr: 0x7f5ccbbd4000
+[7][1] size = 256  addr: 0x7f5ccbbd4200
+[7][2] size = 256  addr: 0x7f5ccbbd4300
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 35 --------------------------]
+index = 1 
+index = 2 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 128   index = 1 
+    1 header[1] == NULL, newblk 128 added to 0x7f5ccbbd4200
+freeListHeader point to: 0x7f5ccbbd4200 
+++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4280,  size: 128   index = 1 
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7f5ccbbd4200
+[1][0] size = 128  addr: 0x7f5ccbbd4200
+[1][1] size = 128  addr: 0x7f5ccbbd4280
+2 0 pointer 0x7f5ccbbd4200
+[2][0] size = 128  addr: 0x7f5ccbbd4200
+[2][1] size = 128  addr: 0x7f5ccbbd4280
+3 0 pointer 0x7f5ccbbd4200
+[3][0] size = 128  addr: 0x7f5ccbbd4200
+[3][1] size = 128  addr: 0x7f5ccbbd4280
+4 0 pointer 0x7f5ccbbd4000
+[4][0] size = 512  addr: 0x7f5ccbbd4000
+[4][1] size = 128  addr: 0x7f5ccbbd4200
+[4][2] size = 128  addr: 0x7f5ccbbd4280
+5 0 pointer 0x7f5ccbbd4000
+[5][0] size = 512  addr: 0x7f5ccbbd4000
+[5][1] size = 128  addr: 0x7f5ccbbd4200
+[5][2] size = 128  addr: 0x7f5ccbbd4280
+6 0 pointer 0x7f5ccbbd4000
+[6][0] size = 512  addr: 0x7f5c

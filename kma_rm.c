@@ -92,11 +92,13 @@ void addToPageList(kma_page_t* newPage){
 	current = g_pageList;
 	if (current==NULL){
 		g_pageList = newPage;
+		g_pageList -> next = NULL;
 		return;
 	}
 	while (current->next!=NULL){
 		current = current->next;
 	}
+	newPage->next = NULL;
 	current->next = newPage;
 }
 void addToFreeBlk(free_blk* newBlk,kma_size_t size){

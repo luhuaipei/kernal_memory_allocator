@@ -79,7 +79,7 @@ void* kma_malloc(kma_size_t size)
   //printf("diff = %p\n", page->ptr - (void*)page);
   // add a pointer to the page structure at the beginning of the page
   *((kma_page_t**)page->ptr) = page;
-
+  //((kma_page_t*)(page->ptr)) = page;
   // printf("addr of page->pt2: %p\n",page->ptr);
   // printf("addr of weird pointer: %p\n",  *((kma_page_t**)page->ptr));
   // printf("BASEADDR : %p  pageaddr %p  page->ptr  %p\n",BASEADDR(page->ptr+200),page, page->ptr);

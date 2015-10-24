@@ -78,6 +78,7 @@ void coalesce();
 int roundSize(int size);
 //void* findPage(ptr);
 void addToPageList(kma_page_t* newPage);
+void setBitMapToOne(free_blk* blkptr, int size);
 void printBitMap();
 void printFreeList();
 //int powof2(int base, int b);
@@ -96,18 +97,23 @@ void addToPageList(kma_page_t* newPage){
 	current = g_pageList;
 	if (current==NULL){
 		g_pageList = newPage;
+		g_pageList->next = NULL;
 		return;
 	}
 	while (current->next!=NULL){
 		current = current->next;
 	}
+	newPage->next = NULL;
 	current->next = newPage;
 }
 
 int findEntry(sizeRound){
 	int index;
+	if (sizeRound==1<<13){
+		return -2;
+	}
 	for(index=0; index<8;index++){
-		if((2<<(index+5))==sizeRound){
+		if((2<<(index+4))==sizeRound){
 			return index;
 		}
 	}
@@ -117,45 +123,112 @@ void initializeBitMap(kma_page_t* page){
 	int i;
 	for (i=0;i<(256/sizeof(int));i++)
 	{
-		*((int*)page->ptr + i)=0;
+		*((int*)page->ptr + i) = 0;
 	}
+	// for (i=0;i<(256/sizeof(int)+1);i++)
+	// {
+	// 	printf("%d",*((int*)page->ptr + i));
+	// }
+	// printf("\n");
 }
+
+void setBitMapToOne(free_blk* blkptr, int size){
+	printf("------------------in setBitMapToOne--------------------------\n");
+	kma_page_t* currentPage = BASEADDR(blkptr);
+	int start = (int)(((void*)blkptr - (void*)currentPage)/32);
+	int end = start + size/32;
+	int i;	
+	//debug code--------begin-----------------------------------------
+	printf("before set bitmap  currentPage = %p blkptr = %p \n", currentPage, blkptr);
+
+// 	for (i=0;i<(256/sizeof(int)+1);i++)
+// 	{
+// 		printf("[%d]",i);
+// //		printf("%d",*((int*)currentPage->ptr + i));
+// 	}
+// 	printf("\n");
+	//debug code-------end--------------------------------------------
+	// from start address to end address , set them to 1
+	for (i=0; i<(end-start);i++){	
+		*((int*)blkptr + i )= 1; 		
+	}
+	//debug code--------begin-----------------------------------------
+	// printf("after set bitmap\n");
+	// for (i=0;i<(256/sizeof(int)+1);i++)
+	// {
+	// 	printf("%d",*((int*)currentPage->ptr + i));
+	// }
+	// printf("\n");
+	//debug code-------end--------------------------------------------
+}
+// void setBitMapToZero(free_blk* blkptr, int size){
+// 	kma_page_t* currentPage = BASEADDR(blkptr);
+// 	int start = int(((void*)blkptr - (void*)currentPage)/32);
+// 	int end = start + size/32;
+// 	int i;	
+// 	// from start address to end address , set them to 1
+// 	blkptr = 
+
+// }
+
 void splitMem(free_blk* father,int index){
-	printf("in splitMem\n");
+	printf("\n-----------------------------in splitMem-----------------------------\n");
 	void* temptr;
 	int newspaceSize;
 	temptr = (void*)father;
 	father = father->nextFree;
-	newspaceSize = 2<<(index+4);
-	addToFreeList(temptr,newspaceSize,index-1);
-	addToFreeList(temptr+newspaceSize,newspaceSize,index-1);
-	printFreeList();
+	newspaceSize = 2<<(index+3);
+	printf("new size===============================%d\n",newspaceSize);
+
+	addToFreeList((free_blk*)temptr,newspaceSize,index-1);
+	addToFreeList((free_blk*)(temptr + newspaceSize),newspaceSize,index-1);
+	//printFreeList();
 }
-//TODO:	
-void* initializePage(int size){
+
+void initializePage(kma_page_t* page){
 //put a 256 bit 0 at the begining of the page
 //4096 4096
+	printf("\n[---------------------Begin initializePage-----------------------------]\n");
+	int index;
+	int spaceSize = (page->size)/2;
+	index = findEntry(spaceSize);
+	printf("New page struct begin at : %p,  page->ptr->nextFree = %p\n ", page,((free_blk*)page->ptr)->nextFree);
+
+	addToFreeList((free_blk*)page->ptr,spaceSize,index);
+	addToFreeList((free_blk*)(page->ptr + spaceSize),spaceSize,index);
+	printFreeList();
+	printf("\n[---------------------END initializePage-----------------------------]\n");
+
 }
 void* findFreeBlk(int size){
 	int index = 0;
 	int sizeRound;
 	void* res;
-	printf("in findFreeBlk %d \n", size);
+	printf("[------------------------Begin findFreeBlk %d --------------------------]\n", size);
 	sizeRound = roundSize(size);
 	index =	findEntry(sizeRound);
 	if( index == -1){
 		printf("CAN'T FIND entry!!\n");
 		exit(2);
+	}else if (index == -2){
+		//the size > 4096 , return a whole page without bitmap;
+		kma_page_t* wholePage = get_page();
+		//Add the page to pagelist
+		addToPageList(wholePage);
+		return wholePage->ptr;
 	}
 	if(freeListHeader[index]==NULL){
 
 		for(index=index;index< 8;index++){
-			printf("111111111111111111111\n");
+			printf("index = %d \n", index);
 			if(freeListHeader[index]!=NULL){
 				printf("222222222222222222222\n");
-				splitMem(freeListHeader[index],index);
+				free_blk* temp = freeListHeader[index];
+				freeListHeader[index] = freeListHeader[index]->nextFree;
+				splitMem(temp,index);
 				printFreeList();
 				res = findFreeBlk(size);
+				setBitMapToOne(res,size);
 				return res;
 			}			
 		}
@@ -163,15 +236,19 @@ void* findFreeBlk(int size){
 		printf("Get new page!!!!!\n");
 		kma_page_t* page;
 		page = get_page();
+		addToPageList(page);
 		if (size > page->size)
 		{ // requested size too large
 			free_page(page);
 			return NULL;
 		}
+		if(size > 4096){
+			// return a whole page without initializing
+		}
 		//find a space to store the bitmap,split the new page.
 		//should be the start 256 bit of the space
-		initializePage(page,256);
-//		addToPageList(page);
+		initializePage(page);
+		findFreeBlk(256);
 		initializeBitMap(page);
 		res = findFreeBlk(size);
 		return res; 
@@ -198,26 +275,49 @@ void kma_free(void* ptr, kma_size_t size)
 
 }
 void addToFreeList(free_blk* ptr, int size, int index){
-	printf("in addtofreelist\n");
+	printf("++++++[ In addtofreelist ] ptr: %p,  size: %d   index = %d \n",ptr, size, index);
 	free_blk* current;
 	free_blk* prev;
 	current = freeListHeader[index];
+	if (current==NULL){
+		printf("    1 header[%d] == NULL, newblk %d added to %p\n", index, size, ptr);
+		freeListHeader[index] = ptr;
+		freeListHeader[index]->nextFree=NULL;
+		freeListHeader[index]->size = size;
+
+		printf("freeListHeader point to: %p \n",freeListHeader[index]);
+//		printFreeList();
+		return;
+	}
 	if (ptr < current){
+		printf("    2  newblk %d added to header[%d] addr : %p\n",  size,index, ptr);
 		freeListHeader[index] = ptr;
 		freeListHeader[index]->nextFree = current;
+		freeListHeader[index]->size = size;		
+//		printFreeList();
 		return;
 	}
 	prev = current;
 	current = current -> nextFree;
+	if(current == NULL){
+		prev->nextFree = ptr;
+		ptr->nextFree = NULL;
+		ptr->size = size; 
+	}
 	while(current!=NULL){
+//		printf("hahahaha\n");
 		if( ptr< current){
+			printf("   3  newblk %d added to header[%d] addr : %p\n",  size,index, ptr);			
 			prev -> nextFree = ptr;
-			ptr -> nextFree = current; 
+			ptr -> nextFree = current;
+			ptr -> size = size;
 		}
 		prev = current;
 		current = current ->nextFree;
-	}
 
+	}
+	printFreeList(); 
+	printf("------------------------Leaving addToFreeList-----------------------\n");
 }
 void delFromFreeList(free_blk* ptr){
 
@@ -241,21 +341,23 @@ int roundSize(int size){
 //
 //}
 void printFreeList(){
+	printf("--------------------printfreelist------------------------------\n");
 	int i = 0;
 	free_blk* current;
 	for (i=0;i<8;i++){
-		current = freeListHeader[i];
 		int j =0;
+		printf("%d %d pointer %p\n",i,j,freeListHeader[i]);
+		current = freeListHeader[i];	
 		while(current!=NULL){
 			printf("[%d][%d] size = %d  addr: %p\n",i,j,current->size, current);
 			current = current->nextFree;
 			j++;
 		}
 	}
+	printf("---------------------------end --------------------------------\n");
 
 }
 
-//TODO: update bit map when allocate memory
 //free
 //coalescing
 
