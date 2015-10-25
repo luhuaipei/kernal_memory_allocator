@@ -178,13 +178,13 @@ main(int argc, char* argv[])
 
 	  assert(req_id >= 0 && req_id < n_req);
     //debug
-	 // printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
+	  printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
 	  allocate(requests, req_id, req_size);
 	  n_alloc++;
 	}
       else if (strcmp(command, "FREE") == 0)
 	{//debug
-   // printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
+    printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
 	  if (fscanf(f_test, "%d", &req_id) != 1)
 	    error("Not enough arguments to FREE", "");
 	  

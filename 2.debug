@@ -1,8 +1,9 @@
-./kma_bud: Running in correctness mode
+/home/huaipei/skeleton/kma_bud: Running in correctness mode
 
 command: REQUEST 0 35
 
 [------------------------Begin findFreeBlk 35 --------------------------]
+_______________index = 1
 index = 1 
 index = 2 
 index = 3 
@@ -10,28 +11,15 @@ index = 4
 index = 5 
 index = 6 
 index = 7 
-Get new page!!!!!
+######################################################33Get new page!!!!!
 
 [---------------------Begin initializePage-----------------------------]
-New page struct begin at : 0xa7fdc0,  page->ptr->nextFree = 0x7f5ccbbd6000
- ++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 4096   index = 7 
-    1 header[7] == NULL, newblk 4096 added to 0x7f5ccbbd4000
-freeListHeader point to: 0x7f5ccbbd4000 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd5000,  size: 4096   index = 7 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer (nil)
-4 0 pointer (nil)
-5 0 pointer (nil)
-6 0 pointer (nil)
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 4096  addr: 0x7f5ccbbd4000
-[7][1] size = 4096  addr: 0x7f5ccbbd5000
----------------------------end --------------------------------
+New page struct begin at : 0x606dc0,  page->ptr->nextFree = 0x7ffff5a16000
+ ++++++[ In addtofreelist ] ptr: 0x7ffff5a14000,  size: 4096   index = 7 
+    1 header[7] == NULL, newblk 4096 added to 0x7ffff5a14000
+freeListHeader point to: 0x7ffff5a14000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a15000,  size: 4096   index = 7 
 ------------------------Leaving addToFreeList-----------------------
-!!!!!!!!!!
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
 1 0 pointer (nil)
@@ -40,23 +28,14 @@ freeListHeader point to: 0x7f5ccbbd4000
 4 0 pointer (nil)
 5 0 pointer (nil)
 6 0 pointer (nil)
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 0  addr: 0x7f5ccbbd4000
----------------------------end --------------------------------
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer (nil)
-4 0 pointer (nil)
-5 0 pointer (nil)
-6 0 pointer (nil)
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 0  addr: 0x7f5ccbbd4000
+7 0 pointer 0x7ffff5a14000
+[7][0] size = 4096  addr: 0x7ffff5a14000
+[7][1] size = 4096  addr: 0x7ffff5a15000
 ---------------------------end --------------------------------
 
 [---------------------END initializePage-----------------------------]
 [------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
 index = 3 
 index = 4 
 index = 5 
@@ -65,24 +44,11 @@ index = 7
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 4096   index = 6 
-    1 header[6] == NULL, newblk 4096 added to 0x7f5ccbbd4000
-freeListHeader point to: 0x7f5ccbbd4000 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd5000,  size: 4096   index = 6 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer (nil)
-4 0 pointer (nil)
-5 0 pointer (nil)
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 4096  addr: 0x7f5ccbbd4000
-[6][1] size = 4096  addr: 0x7f5ccbbd5000
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 4096  addr: 0x7f5ccbbd4000
-[7][1] size = 4096  addr: 0x7f5ccbbd5000
----------------------------end --------------------------------
+new size===============================2048
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14000,  size: 2048   index = 6 
+    1 header[6] == NULL, newblk 2048 added to 0x7ffff5a14000
+freeListHeader point to: 0x7ffff5a14000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14800,  size: 2048   index = 6 
 ------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
@@ -91,14 +57,13 @@ freeListHeader point to: 0x7f5ccbbd4000
 3 0 pointer (nil)
 4 0 pointer (nil)
 5 0 pointer (nil)
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 4096  addr: 0x7f5ccbbd4000
-[6][1] size = 4096  addr: 0x7f5ccbbd5000
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 4096  addr: 0x7f5ccbbd4000
-[7][1] size = 4096  addr: 0x7f5ccbbd5000
+6 0 pointer 0x7ffff5a14000
+[6][0] size = 2048  addr: 0x7ffff5a14000
+[6][1] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
 ---------------------------end --------------------------------
 [------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
 index = 3 
 index = 4 
 index = 5 
@@ -106,26 +71,11 @@ index = 6
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 2048   index = 5 
-    1 header[5] == NULL, newblk 2048 added to 0x7f5ccbbd4000
-freeListHeader point to: 0x7f5ccbbd4000 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4800,  size: 2048   index = 5 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer (nil)
-4 0 pointer (nil)
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 2048  addr: 0x7f5ccbbd4000
-[5][1] size = 2048  addr: 0x7f5ccbbd4800
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 2048  addr: 0x7f5ccbbd4000
-[6][1] size = 2048  addr: 0x7f5ccbbd4800
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 2048  addr: 0x7f5ccbbd4000
-[7][1] size = 2048  addr: 0x7f5ccbbd4800
----------------------------end --------------------------------
+new size===============================1024
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14000,  size: 1024   index = 5 
+    1 header[5] == NULL, newblk 1024 added to 0x7ffff5a14000
+freeListHeader point to: 0x7ffff5a14000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14400,  size: 1024   index = 5 
 ------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
@@ -133,208 +83,1262 @@ freeListHeader point to: 0x7f5ccbbd4000
 2 0 pointer (nil)
 3 0 pointer (nil)
 4 0 pointer (nil)
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 2048  addr: 0x7f5ccbbd4000
-[5][1] size = 2048  addr: 0x7f5ccbbd4800
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 2048  addr: 0x7f5ccbbd4000
-[6][1] size = 2048  addr: 0x7f5ccbbd4800
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 2048  addr: 0x7f5ccbbd4000
-[7][1] size = 2048  addr: 0x7f5ccbbd4800
+5 0 pointer 0x7ffff5a14000
+[5][0] size = 1024  addr: 0x7ffff5a14000
+[5][1] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
 ---------------------------end --------------------------------
 [------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
 index = 3 
 index = 4 
 index = 5 
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 1024   index = 4 
-    1 header[4] == NULL, newblk 1024 added to 0x7f5ccbbd4000
-freeListHeader point to: 0x7f5ccbbd4000 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4400,  size: 1024   index = 4 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer (nil)
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 1024  addr: 0x7f5ccbbd4000
-[4][1] size = 1024  addr: 0x7f5ccbbd4400
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 1024  addr: 0x7f5ccbbd4000
-[5][1] size = 1024  addr: 0x7f5ccbbd4400
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 1024  addr: 0x7f5ccbbd4000
-[6][1] size = 1024  addr: 0x7f5ccbbd4400
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 1024  addr: 0x7f5ccbbd4000
-[7][1] size = 1024  addr: 0x7f5ccbbd4400
----------------------------end --------------------------------
+new size===============================512
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14000,  size: 512   index = 4 
+    1 header[4] == NULL, newblk 512 added to 0x7ffff5a14000
+freeListHeader point to: 0x7ffff5a14000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14200,  size: 512   index = 4 
 ------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
 1 0 pointer (nil)
 2 0 pointer (nil)
 3 0 pointer (nil)
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 1024  addr: 0x7f5ccbbd4000
-[4][1] size = 1024  addr: 0x7f5ccbbd4400
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 1024  addr: 0x7f5ccbbd4000
-[5][1] size = 1024  addr: 0x7f5ccbbd4400
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 1024  addr: 0x7f5ccbbd4000
-[6][1] size = 1024  addr: 0x7f5ccbbd4400
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 1024  addr: 0x7f5ccbbd4000
-[7][1] size = 1024  addr: 0x7f5ccbbd4400
+4 0 pointer 0x7ffff5a14000
+[4][0] size = 512  addr: 0x7ffff5a14000
+[4][1] size = 512  addr: 0x7ffff5a14200
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
 ---------------------------end --------------------------------
 [------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
 index = 3 
 index = 4 
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4000,  size: 512   index = 3 
-    1 header[3] == NULL, newblk 512 added to 0x7f5ccbbd4000
-freeListHeader point to: 0x7f5ccbbd4000 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 512   index = 3 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer (nil)
-3 0 pointer 0x7f5ccbbd4000
-[3][0] size = 512  addr: 0x7f5ccbbd4000
-[3][1] size = 512  addr: 0x7f5ccbbd4200
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 512  addr: 0x7f5ccbbd4000
-[4][1] size = 512  addr: 0x7f5ccbbd4200
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 512  addr: 0x7f5ccbbd4000
-[5][1] size = 512  addr: 0x7f5ccbbd4200
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 512  addr: 0x7f5ccbbd4000
-[6][1] size = 512  addr: 0x7f5ccbbd4200
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 512  addr: 0x7f5ccbbd4000
-[7][1] size = 512  addr: 0x7f5ccbbd4200
----------------------------end --------------------------------
+new size===============================256
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14000,  size: 256   index = 3 
+    1 header[3] == NULL, newblk 256 added to 0x7ffff5a14000
+freeListHeader point to: 0x7ffff5a14000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14100,  size: 256   index = 3 
 ------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
 1 0 pointer (nil)
 2 0 pointer (nil)
-3 0 pointer 0x7f5ccbbd4000
-[3][0] size = 512  addr: 0x7f5ccbbd4000
-[3][1] size = 512  addr: 0x7f5ccbbd4200
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 512  addr: 0x7f5ccbbd4000
-[4][1] size = 512  addr: 0x7f5ccbbd4200
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 512  addr: 0x7f5ccbbd4000
-[5][1] size = 512  addr: 0x7f5ccbbd4200
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 512  addr: 0x7f5ccbbd4000
-[6][1] size = 512  addr: 0x7f5ccbbd4200
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 512  addr: 0x7f5ccbbd4000
-[7][1] size = 512  addr: 0x7f5ccbbd4200
+3 0 pointer 0x7ffff5a14000
+[3][0] size = 256  addr: 0x7ffff5a14000
+[3][1] size = 256  addr: 0x7ffff5a14100
+4 0 pointer 0x7ffff5a14200
+[4][0] size = 512  addr: 0x7ffff5a14200
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
 ---------------------------end --------------------------------
 [------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+IN the right entry, find the size 256!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
 [------------------------Begin findFreeBlk 35 --------------------------]
+_______________index = 1
 index = 1 
 index = 2 
 index = 3 
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 256   index = 2 
-    1 header[2] == NULL, newblk 256 added to 0x7f5ccbbd4200
-freeListHeader point to: 0x7f5ccbbd4200 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4300,  size: 256   index = 2 
---------------------printfreelist------------------------------
-0 0 pointer (nil)
-1 0 pointer (nil)
-2 0 pointer 0x7f5ccbbd4200
-[2][0] size = 256  addr: 0x7f5ccbbd4200
-[2][1] size = 256  addr: 0x7f5ccbbd4300
-3 0 pointer 0x7f5ccbbd4200
-[3][0] size = 256  addr: 0x7f5ccbbd4200
-[3][1] size = 256  addr: 0x7f5ccbbd4300
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 512  addr: 0x7f5ccbbd4000
-[4][1] size = 256  addr: 0x7f5ccbbd4200
-[4][2] size = 256  addr: 0x7f5ccbbd4300
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 512  addr: 0x7f5ccbbd4000
-[5][1] size = 256  addr: 0x7f5ccbbd4200
-[5][2] size = 256  addr: 0x7f5ccbbd4300
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 512  addr: 0x7f5ccbbd4000
-[6][1] size = 256  addr: 0x7f5ccbbd4200
-[6][2] size = 256  addr: 0x7f5ccbbd4300
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 512  addr: 0x7f5ccbbd4000
-[7][1] size = 256  addr: 0x7f5ccbbd4200
-[7][2] size = 256  addr: 0x7f5ccbbd4300
----------------------------end --------------------------------
+new size===============================128
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14100,  size: 128   index = 2 
+    1 header[2] == NULL, newblk 128 added to 0x7ffff5a14100
+freeListHeader point to: 0x7ffff5a14100 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14180,  size: 128   index = 2 
 ------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
 1 0 pointer (nil)
-2 0 pointer 0x7f5ccbbd4200
-[2][0] size = 256  addr: 0x7f5ccbbd4200
-[2][1] size = 256  addr: 0x7f5ccbbd4300
-3 0 pointer 0x7f5ccbbd4200
-[3][0] size = 256  addr: 0x7f5ccbbd4200
-[3][1] size = 256  addr: 0x7f5ccbbd4300
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 512  addr: 0x7f5ccbbd4000
-[4][1] size = 256  addr: 0x7f5ccbbd4200
-[4][2] size = 256  addr: 0x7f5ccbbd4300
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 512  addr: 0x7f5ccbbd4000
-[5][1] size = 256  addr: 0x7f5ccbbd4200
-[5][2] size = 256  addr: 0x7f5ccbbd4300
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 512  addr: 0x7f5ccbbd4000
-[6][1] size = 256  addr: 0x7f5ccbbd4200
-[6][2] size = 256  addr: 0x7f5ccbbd4300
-7 0 pointer 0x7f5ccbbd4000
-[7][0] size = 512  addr: 0x7f5ccbbd4000
-[7][1] size = 256  addr: 0x7f5ccbbd4200
-[7][2] size = 256  addr: 0x7f5ccbbd4300
+2 0 pointer 0x7ffff5a14100
+[2][0] size = 128  addr: 0x7ffff5a14100
+[2][1] size = 128  addr: 0x7ffff5a14180
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a14200
+[4][0] size = 512  addr: 0x7ffff5a14200
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
 ---------------------------end --------------------------------
 [------------------------Begin findFreeBlk 35 --------------------------]
+_______________index = 1
 index = 1 
 index = 2 
 222222222222222222222
 
 -----------------------------in splitMem-----------------------------
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4200,  size: 128   index = 1 
-    1 header[1] == NULL, newblk 128 added to 0x7f5ccbbd4200
-freeListHeader point to: 0x7f5ccbbd4200 
-++++++[ In addtofreelist ] ptr: 0x7f5ccbbd4280,  size: 128   index = 1 
+new size===============================64
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14100,  size: 64   index = 1 
+    1 header[1] == NULL, newblk 64 added to 0x7ffff5a14100
+freeListHeader point to: 0x7ffff5a14100 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14140,  size: 64   index = 1 
+------------------------Leaving addToFreeList-----------------------
 --------------------printfreelist------------------------------
 0 0 pointer (nil)
-1 0 pointer 0x7f5ccbbd4200
-[1][0] size = 128  addr: 0x7f5ccbbd4200
-[1][1] size = 128  addr: 0x7f5ccbbd4280
-2 0 pointer 0x7f5ccbbd4200
-[2][0] size = 128  addr: 0x7f5ccbbd4200
-[2][1] size = 128  addr: 0x7f5ccbbd4280
-3 0 pointer 0x7f5ccbbd4200
-[3][0] size = 128  addr: 0x7f5ccbbd4200
-[3][1] size = 128  addr: 0x7f5ccbbd4280
-4 0 pointer 0x7f5ccbbd4000
-[4][0] size = 512  addr: 0x7f5ccbbd4000
-[4][1] size = 128  addr: 0x7f5ccbbd4200
-[4][2] size = 128  addr: 0x7f5ccbbd4280
-5 0 pointer 0x7f5ccbbd4000
-[5][0] size = 512  addr: 0x7f5ccbbd4000
-[5][1] size = 128  addr: 0x7f5ccbbd4200
-[5][2] size = 128  addr: 0x7f5ccbbd4280
-6 0 pointer 0x7f5ccbbd4000
-[6][0] size = 512  addr: 0x7f5c
+1 0 pointer 0x7ffff5a14100
+[1][0] size = 64  addr: 0x7ffff5a14100
+[1][1] size = 64  addr: 0x7ffff5a14140
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a14200
+[4][0] size = 512  addr: 0x7ffff5a14200
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 35 --------------------------]
+_______________index = 1
+IN the right entry, find the size 35!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14100 
+0 ,49
+1 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14100 
+0 ,49
+1 ,49
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14140
+[1][0] size = 64  addr: 0x7ffff5a14140
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a14200
+[4][0] size = 512  addr: 0x7ffff5a14200
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 1 243
+
+[------------------------Begin findFreeBlk 243 --------------------------]
+_______________index = 3
+index = 3 
+index = 4 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================256
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14200,  size: 256   index = 3 
+    1 header[3] == NULL, newblk 256 added to 0x7ffff5a14200
+freeListHeader point to: 0x7ffff5a14200 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14300,  size: 256   index = 3 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14140
+[1][0] size = 64  addr: 0x7ffff5a14140
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14200
+[3][0] size = 256  addr: 0x7ffff5a14200
+[3][1] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 243 --------------------------]
+_______________index = 3
+IN the right entry, find the size 243!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14200 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14140
+[1][0] size = 64  addr: 0x7ffff5a14140
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 2 13
+
+[------------------------Begin findFreeBlk 13 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================32
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14140,  size: 32   index = 0 
+    1 header[0] == NULL, newblk 32 added to 0x7ffff5a14140
+freeListHeader point to: 0x7ffff5a14140 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14160,  size: 32   index = 0 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14140
+[0][0] size = 32  addr: 0x7ffff5a14140
+[0][1] size = 32  addr: 0x7ffff5a14160
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 13 --------------------------]
+_______________index = 0
+IN the right entry, find the size 13!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14140 
+0 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14160
+[0][0] size = 32  addr: 0x7ffff5a14160
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 3 29
+
+[------------------------Begin findFreeBlk 29 --------------------------]
+_______________index = 0
+IN the right entry, find the size 29!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14400
+[5][0] size = 1024  addr: 0x7ffff5a14400
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 4 757
+
+[------------------------Begin findFreeBlk 757 --------------------------]
+_______________index = 5
+IN the right entry, find the size 757!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14180
+[2][0] size = 128  addr: 0x7ffff5a14180
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 5 9
+
+[------------------------Begin findFreeBlk 9 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+index = 2 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================64
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14180,  size: 64   index = 1 
+    1 header[1] == NULL, newblk 64 added to 0x7ffff5a14180
+freeListHeader point to: 0x7ffff5a14180 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a141c0,  size: 64   index = 1 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14180
+[1][0] size = 64  addr: 0x7ffff5a14180
+[1][1] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 9 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================32
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14180,  size: 32   index = 0 
+    1 header[0] == NULL, newblk 32 added to 0x7ffff5a14180
+freeListHeader point to: 0x7ffff5a14180 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a141a0,  size: 32   index = 0 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14180
+[0][0] size = 32  addr: 0x7ffff5a14180
+[0][1] size = 32  addr: 0x7ffff5a141a0
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 9 --------------------------]
+_______________index = 0
+IN the right entry, find the size 9!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14180 
+0 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14180 
+0 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a141a0
+[0][0] size = 32  addr: 0x7ffff5a141a0
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 6 26
+
+[------------------------Begin findFreeBlk 26 --------------------------]
+_______________index = 0
+IN the right entry, find the size 26!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a14800
+[6][0] size = 2048  addr: 0x7ffff5a14800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 7 326
+
+[------------------------Begin findFreeBlk 326 --------------------------]
+_______________index = 4
+index = 4 
+index = 5 
+index = 6 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================1024
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14800,  size: 1024   index = 5 
+    1 header[5] == NULL, newblk 1024 added to 0x7ffff5a14800
+freeListHeader point to: 0x7ffff5a14800 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14c00,  size: 1024   index = 5 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14800
+[5][0] size = 1024  addr: 0x7ffff5a14800
+[5][1] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 326 --------------------------]
+_______________index = 4
+index = 4 
+index = 5 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================512
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14800,  size: 512   index = 4 
+    1 header[4] == NULL, newblk 512 added to 0x7ffff5a14800
+freeListHeader point to: 0x7ffff5a14800 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a00,  size: 512   index = 4 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer 0x7ffff5a14800
+[4][0] size = 512  addr: 0x7ffff5a14800
+[4][1] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 326 --------------------------]
+_______________index = 4
+IN the right entry, find the size 326!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14800 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+8 ,49
+9 ,49
+10 ,49
+11 ,49
+12 ,49
+13 ,49
+14 ,49
+15 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14800 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+8 ,49
+9 ,49
+10 ,49
+11 ,49
+12 ,49
+13 ,49
+14 ,49
+15 ,49
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a141c0
+[1][0] size = 64  addr: 0x7ffff5a141c0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer 0x7ffff5a14a00
+[4][0] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 8 11
+
+[------------------------Begin findFreeBlk 11 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================32
+++++++[ In addtofreelist ] ptr: 0x7ffff5a141c0,  size: 32   index = 0 
+    1 header[0] == NULL, newblk 32 added to 0x7ffff5a141c0
+freeListHeader point to: 0x7ffff5a141c0 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a141e0,  size: 32   index = 0 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a141c0
+[0][0] size = 32  addr: 0x7ffff5a141c0
+[0][1] size = 32  addr: 0x7ffff5a141e0
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer 0x7ffff5a14a00
+[4][0] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 11 --------------------------]
+_______________index = 0
+IN the right entry, find the size 11!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a141c0 
+0 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a141e0
+[0][0] size = 32  addr: 0x7ffff5a141e0
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14300
+[3][0] size = 256  addr: 0x7ffff5a14300
+4 0 pointer 0x7ffff5a14a00
+[4][0] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 9 219
+
+[------------------------Begin findFreeBlk 219 --------------------------]
+_______________index = 3
+IN the right entry, find the size 219!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a141e0
+[0][0] size = 32  addr: 0x7ffff5a141e0
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a14a00
+[4][0] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 10 16
+
+[------------------------Begin findFreeBlk 16 --------------------------]
+_______________index = 0
+IN the right entry, find the size 16!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a14a00
+[4][0] size = 512  addr: 0x7ffff5a14a00
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 11 30
+
+[------------------------Begin findFreeBlk 30 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+index = 2 
+index = 3 
+index = 4 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================256
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a00,  size: 256   index = 3 
+    1 header[3] == NULL, newblk 256 added to 0x7ffff5a14a00
+freeListHeader point to: 0x7ffff5a14a00 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14b00,  size: 256   index = 3 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a14a00
+[3][0] size = 256  addr: 0x7ffff5a14a00
+[3][1] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 30 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+index = 2 
+index = 3 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================128
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a00,  size: 128   index = 2 
+    1 header[2] == NULL, newblk 128 added to 0x7ffff5a14a00
+freeListHeader point to: 0x7ffff5a14a00 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a80,  size: 128   index = 2 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14a00
+[2][0] size = 128  addr: 0x7ffff5a14a00
+[2][1] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 30 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+index = 2 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================64
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a00,  size: 64   index = 1 
+    1 header[1] == NULL, newblk 64 added to 0x7ffff5a14a00
+freeListHeader point to: 0x7ffff5a14a00 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a40,  size: 64   index = 1 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14a00
+[1][0] size = 64  addr: 0x7ffff5a14a00
+[1][1] size = 64  addr: 0x7ffff5a14a40
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 30 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================32
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a00,  size: 32   index = 0 
+    1 header[0] == NULL, newblk 32 added to 0x7ffff5a14a00
+freeListHeader point to: 0x7ffff5a14a00 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a20,  size: 32   index = 0 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a00
+[0][0] size = 32  addr: 0x7ffff5a14a00
+[0][1] size = 32  addr: 0x7ffff5a14a20
+1 0 pointer 0x7ffff5a14a40
+[1][0] size = 64  addr: 0x7ffff5a14a40
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 30 --------------------------]
+_______________index = 0
+IN the right entry, find the size 30!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a00 
+0 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a00 
+0 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a00 
+0 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a00 
+0 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a20
+[0][0] size = 32  addr: 0x7ffff5a14a20
+1 0 pointer 0x7ffff5a14a40
+[1][0] size = 64  addr: 0x7ffff5a14a40
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 12 47
+
+[------------------------Begin findFreeBlk 47 --------------------------]
+_______________index = 1
+IN the right entry, find the size 47!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a20
+[0][0] size = 32  addr: 0x7ffff5a14a20
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a14c00
+[5][0] size = 1024  addr: 0x7ffff5a14c00
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 13 612
+
+[------------------------Begin findFreeBlk 612 --------------------------]
+_______________index = 5
+IN the right entry, find the size 612!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a20
+[0][0] size = 32  addr: 0x7ffff5a14a20
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer 0x7ffff5a14b00
+[3][0] size = 256  addr: 0x7ffff5a14b00
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 14 203
+
+[------------------------Begin findFreeBlk 203 --------------------------]
+_______________index = 3
+IN the right entry, find the size 203!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a20
+[0][0] size = 32  addr: 0x7ffff5a14a20
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 15 12
+
+[------------------------Begin findFreeBlk 12 --------------------------]
+_______________index = 0
+IN the right entry, find the size 12!!!!
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer (nil)
+2 0 pointer 0x7ffff5a14a80
+[2][0] size = 128  addr: 0x7ffff5a14a80
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 16 32
+
+[------------------------Begin findFreeBlk 32 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+index = 2 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================64
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a80,  size: 64   index = 1 
+    1 header[1] == NULL, newblk 64 added to 0x7ffff5a14a80
+freeListHeader point to: 0x7ffff5a14a80 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14ac0,  size: 64   index = 1 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer (nil)
+1 0 pointer 0x7ffff5a14a80
+[1][0] size = 64  addr: 0x7ffff5a14a80
+[1][1] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 32 --------------------------]
+_______________index = 0
+index = 0 
+index = 1 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================32
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a80,  size: 32   index = 0 
+    1 header[0] == NULL, newblk 32 added to 0x7ffff5a14a80
+freeListHeader point to: 0x7ffff5a14a80 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14aa0,  size: 32   index = 0 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14a80
+[0][0] size = 32  addr: 0x7ffff5a14a80
+[0][1] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 32 --------------------------]
+_______________index = 0
+IN the right entry, find the size 32!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a80 
+0 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a80 
+0 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 17 746
+
+[------------------------Begin findFreeBlk 746 --------------------------]
+_______________index = 5
+index = 5 
+index = 6 
+index = 7 
+######################################################33Get new page!!!!!
+
+[---------------------Begin initializePage-----------------------------]
+New page struct begin at : 0x607950,  page->ptr->nextFree = 0x7ffff5a18000
+ ++++++[ In addtofreelist ] ptr: 0x7ffff5a16000,  size: 4096   index = 7 
+    1 header[7] == NULL, newblk 4096 added to 0x7ffff5a16000
+freeListHeader point to: 0x7ffff5a16000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a17000,  size: 4096   index = 7 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer (nil)
+7 0 pointer 0x7ffff5a16000
+[7][0] size = 4096  addr: 0x7ffff5a16000
+[7][1] size = 4096  addr: 0x7ffff5a17000
+---------------------------end --------------------------------
+
+[---------------------END initializePage-----------------------------]
+[------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+index = 3 
+index = 4 
+index = 5 
+index = 6 
+index = 7 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================2048
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16000,  size: 2048   index = 6 
+    1 header[6] == NULL, newblk 2048 added to 0x7ffff5a16000
+freeListHeader point to: 0x7ffff5a16000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16800,  size: 2048   index = 6 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a16000
+[6][0] size = 2048  addr: 0x7ffff5a16000
+[6][1] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+index = 3 
+index = 4 
+index = 5 
+index = 6 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================1024
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16000,  size: 1024   index = 5 
+    1 header[5] == NULL, newblk 1024 added to 0x7ffff5a16000
+freeListHeader point to: 0x7ffff5a16000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16400,  size: 1024   index = 5 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer (nil)
+5 0 pointer 0x7ffff5a16000
+[5][0] size = 1024  addr: 0x7ffff5a16000
+[5][1] size = 1024  addr: 0x7ffff5a16400
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+index = 3 
+index = 4 
+index = 5 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================512
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16000,  size: 512   index = 4 
+    1 header[4] == NULL, newblk 512 added to 0x7ffff5a16000
+freeListHeader point to: 0x7ffff5a16000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16200,  size: 512   index = 4 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a16000
+[4][0] size = 512  addr: 0x7ffff5a16000
+[4][1] size = 512  addr: 0x7ffff5a16200
+5 0 pointer 0x7ffff5a16400
+[5][0] size = 1024  addr: 0x7ffff5a16400
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+index = 3 
+index = 4 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================256
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16000,  size: 256   index = 3 
+    1 header[3] == NULL, newblk 256 added to 0x7ffff5a16000
+freeListHeader point to: 0x7ffff5a16000 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16100,  size: 256   index = 3 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a16000
+[3][0] size = 256  addr: 0x7ffff5a16000
+[3][1] size = 256  addr: 0x7ffff5a16100
+4 0 pointer 0x7ffff5a16200
+[4][0] size = 512  addr: 0x7ffff5a16200
+5 0 pointer 0x7ffff5a16400
+[5][0] size = 1024  addr: 0x7ffff5a16400
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 256 --------------------------]
+_______________index = 3
+IN the right entry, find the size 256!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a16000 blkptr = 0x7ffff5a16000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a16000 blkptr = 0x7ffff5a16000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a16000 blkptr = 0x7ffff5a16000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a16000 blkptr = 0x7ffff5a16000 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+4 ,49
+5 ,49
+6 ,49
+7 ,49
+[------------------------Begin findFreeBlk 746 --------------------------]
+_______________index = 5
+IN the right entry, find the size 746!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a16100
+[3][0] size = 256  addr: 0x7ffff5a16100
+4 0 pointer 0x7ffff5a16200
+[4][0] size = 512  addr: 0x7ffff5a16200
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: FREE 17 746
+
+-------------In checkNbrEmpty--------------
+prevNbr ADDR: 0x7ffff5a14a00, prev size: -1616994916 prev next: 0x9b9a999897969594
+prevNbr ADDR: 0x7ffff5a14a40, prev size: -1111704646 prev next: 0xb9b8b7b6b5b4b3b2
+RETURN 5
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a14000 blkptr = 0x7ffff5a14a20 
+0 ,48
+++++++[ In addtofreelist ] ptr: 0x7ffff5a14a20,  size: 64   index = 0 
+    2  newblk 64 added to header[0] addr : 0x7ffff5a14a20
+
+command: REQUEST 18 10
+
+[------------------------Begin findFreeBlk 10 --------------------------]
+_______________index = 0
+IN the right entry, find the size 10!!!!
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer (nil)
+3 0 pointer 0x7ffff5a16100
+[3][0] size = 256  addr: 0x7ffff5a16100
+4 0 pointer 0x7ffff5a16200
+[4][0] size = 512  addr: 0x7ffff5a16200
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+
+command: REQUEST 19 66
+
+[------------------------Begin findFreeBlk 66 --------------------------]
+_______________index = 2
+index = 2 
+index = 3 
+222222222222222222222
+
+-----------------------------in splitMem-----------------------------
+new size===============================128
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16100,  size: 128   index = 2 
+    1 header[2] == NULL, newblk 128 added to 0x7ffff5a16100
+freeListHeader point to: 0x7ffff5a16100 
+++++++[ In addtofreelist ] ptr: 0x7ffff5a16180,  size: 128   index = 2 
+------------------------Leaving addToFreeList-----------------------
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 pointer 0x7ffff5a14ac0
+[1][0] size = 64  addr: 0x7ffff5a14ac0
+2 0 pointer 0x7ffff5a16100
+[2][0] size = 128  addr: 0x7ffff5a16100
+[2][1] size = 128  addr: 0x7ffff5a16180
+3 0 pointer (nil)
+4 0 pointer 0x7ffff5a16200
+[4][0] size = 512  addr: 0x7ffff5a16200
+5 0 pointer (nil)
+6 0 pointer 0x7ffff5a16800
+[6][0] size = 2048  addr: 0x7ffff5a16800
+7 0 pointer (nil)
+---------------------------end --------------------------------
+[------------------------Begin findFreeBlk 66 --------------------------]
+_______________index = 2
+IN the right entry, find the size 66!!!!
+------------------in setBitMapToOne--------------------------
+before set bitmap 
+       currentPage = 0x7ffff5a16000 blkptr = 0x7ffff5a16100 
+0 ,49
+1 ,49
+2 ,49
+3 ,49
+--------------------printfreelist------------------------------
+0 0 pointer 0x7ffff5a14aa0
+[0][0] size = 32  addr: 0x7ffff5a14aa0
+1 0 p
