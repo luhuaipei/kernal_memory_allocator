@@ -48,29 +48,94 @@
 /************System include***********************************************/
 #include <assert.h>
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <string.h>
 /************Private include**********************************************/
 #include "kma_page.h"
 #include "kma.h"
 
+#define BASE 32
+ #define PTRSIZE 4
 /************Defines and Typedefs*****************************************/
 /*  #defines and typedefs should have their names in all caps.
  *  Global variables begin with g. Global constants with k. Local
  *  variables should be in all lower case. When initializing
  *  structures and arrays, line everything up in neat columns.
  */
+typedef struct freeBlock{
+	struct freeBlock* nextFree ;
+}free_blk;
 
+// typedef struct listArray{
+// 	free_blk* fb32 = NULL;
+// 	free_blk* fb64 = NULL;
+// 	free_blk* fb128 = NULL;
+// 	free_blk* fb256 = NULL;
+// 	free_blk* fb512 = NULL;
+// 	free_blk* fb1024 = NULL;
+// 	free_blk* fb2048 = NULL;
+// 	free_blk* fb4096 = NULL;
+// }list_array;
+
+struct free_blk* freeArray[8];
 /************Global Variables*********************************************/
-
+kma_page_t* g_pageList = NULL;
+list_array freeList;
 /************Function Prototypes******************************************/
-
+void cutPage(kma_size_t, kma_page_t*);
+void roundBlkSize(kma_size_t)
 /************External Declaration*****************************************/
 
 /**************Implementation***********************************************/
 
 void* kma_malloc(kma_size_t size)
+{	
+	// if (g_pageList==NULL){
+	// 	g_pageList = get_page();
+	// 	// add a pointer to the page structure at the beginning of the page
+	// 	*((kma_page_t**)g_pageList->ptr) = g_pageList;
+	// 	if ((size + sizeof(kma_page_t*)) > g_pageList->size)
+	// 	{ // requested size too large
+	// 	  free_page(g_pageList);
+	// 	  return NULL;
+	// 	}
+	// 	cutPage(size, g_pageList);                            //need to maintain pagelist
+	// 	g_pageList->num_in_use=1;
+	// }
+	int index = roundBlkSize(size);
+	int blkSize = BASE * (2 ^ index);
+	if(freeList[index] == NULL) cutPage(size, get_page());
+	free_blk* newBlk = freeList[index];
+	freeList[index] = freeList[index]->nextFree;
+	*((free_blk**)newBlk->nextFree) = (void*)size;           // need check (void*)
+	return newBlk + PTRSIZE;
+}
+
+void cutPage(kma_size_t size, kma_page_t* currentPage)
 {
-  return NULL;
+	int index = roundBlkSize(size);
+	int blkSize = BASE * (2 ^ index);
+	freeList[index] = (free_blk*) (g_pageList->ptr + sizeof(kma_page_t*)); 
+	free_blk* curr = freeList[index];
+	for(int i=0; i < (PAGESIZE - sizeof(kma_page_t*)) / blkSize - 1; i++)
+	{
+		*((free_blk**)curr->nextFree) = (free_blk*)(curr + blkSize);
+		curr += blkSize;
+	}
+	*((free_blk**)curr->nextFree) = NULL;
+	return freeList[index];
+}
+
+void roundBlkSize(kma_size_t size)
+{
+	int blkSize = BASE;
+	int totalSize = size+4;
+	int index = 0;
+	while(totalSize>blkSize){
+		blkSize *= 2;
+		index++;
+	}
+	return index;
 }
 
 void kma_free(void* ptr, kma_size_t size)
