@@ -177,19 +177,20 @@ main(int argc, char* argv[])
 	    error("Not enough arguments to REQUEST", "");
 
 	  assert(req_id >= 0 && req_id < n_req);
-    //debug
-	  printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
+ //   printf("\n%s  %d  %d\n",command,req_id,req_size);	  
 	  allocate(requests, req_id, req_size);
 	  n_alloc++;
 	}
       else if (strcmp(command, "FREE") == 0)
-	{//debug
-    printf("\ncommand: %s %d %d\n\n",command,req_id,req_size);
+	{
+    printf("\n%s  %d\n",command,req_id);
+ //   int id = req_id;
 	  if (fscanf(f_test, "%d", &req_id) != 1)
 	    error("Not enough arguments to FREE", "");
 	  
 	  assert(req_id >= 0 && req_id < n_req);
-	  
+	  //printf("%s  %d  %d  %p \n",command,req_id,req_size,&req_id);
+  //  printf("\n%s  %d\n",command,req_id);
 	  deallocate(requests, req_id);
 	  n_dealloc++;
 	}
@@ -322,7 +323,7 @@ void
 deallocate(mem_t* requests, int req_id)
 {
   mem_t* cur = &requests[req_id];
-  
+ // / printf("cur->state add: %p\n")
   assert(cur->state == USED);
   assert(cur->size > 0);
   

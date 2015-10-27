@@ -70,8 +70,6 @@ kma_page_t* g_pageList;
 free_blk* freeBlkHead;
 int count=0;
 /************Function Prototypes******************************************/
-//void* kma_malloc(kma_size_t size);
-//void kma_free(void* ptr, kma_size_t size);
 void* findFreeBlk(kma_size_t size);
 void PrintFreeList();
 void PrintPageList();
@@ -85,8 +83,6 @@ void addToFreeBlk(free_blk* newBlk,kma_size_t size);
 /************External Declaration*****************************************/
 
 /**************Implementation***********************************************/
-
-
 void addToPageList(kma_page_t* newPage){
 	kma_page_t* current;
 	current = g_pageList;
