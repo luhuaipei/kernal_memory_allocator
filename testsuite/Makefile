@@ -38,7 +38,7 @@ PROGS = kma_dummy kma_rm kma_p2fl kma_mck2 kma_bud kma_lzbud
 SRCS = kma.c kma_page.c kma_dummy.c kma_rm.c kma_p2fl.c kma_mck2.c kma_bud.c kma_lzbud.c
 OBJS = ${SRCS:.c=.o}
 
-VM_NAME = "Ubuntu_1404"
+VM_NAME = "Ubuntu1404"
 VM_PORT = "3022"
 
 SHELL_ARCH = “64”

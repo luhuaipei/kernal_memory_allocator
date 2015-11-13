@@ -25,3 +25,14 @@ Lazy Buddy:
 		5.trace:1.83s		Page Usage:15838
 Analysis: 
 	From the test result we could see that lzbud and bud run faster than rm, however they use much more space to store the data. This is because resouce map algorithm could make better use of the space and has less fragmentation, while bud and lazy bud has much more fragmentation situation. But bud and lzbud could run faster than rm because it doesn't need to go through the the whole linked list to find a block. They only need to find a block from the fight entry. 
+
+Power of Two:
+	We implemented the extra credit of pow-of-two algorithm. In this algorithm, the first page was used to store a head, which includes the array of linked list. This array was used to store the free block in each size. And there is also a pointer that always points to the left empty size in the last page, and an integer that record the left size of this page. Every time the malloced memory is equal to freed memory, free all the pages. From the time of running file 3.trace and 5.trace, we could see that the speed of this algorithm is much more faster than previous algorithm. 
+	3.trace: 0.08     Page Usage:892
+	5.trace: 0.31	  Page Usage:1171
+
+McKusick-Karels:
+	The McKusick-KarelsIn this algorithm is an improved algorithm from power-of-two algorithm. Here, the first page was used to store a head, which includes the array of linked list. This array was used to store the free block in each size.Each time a memory is requested and the corresponding linked list is empty, we alloc one new page and cut it into pieces of blocks and linked them to the array. Every time the malloced memory is equal to freed memory, free all the pages. From the time of running file 3.trace and 5.trace, we could see that the speed of this algorithm is much more faster than previous algorithm. 
+
+	3.trace: 0.04     Page Usage:786
+	5.trace: 0.32	  Page Usage:1038

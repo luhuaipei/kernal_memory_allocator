@@ -47,7 +47,6 @@
 /************System include***********************************************/
 #include <assert.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 /************Private include**********************************************/
 #include "kma_page.h"
@@ -130,10 +129,6 @@ void addToFreeBlk(free_blk* newBlk,kma_size_t size){
 	}
 }
 void* findFreeBlk(kma_size_t size){
-	if (freeBlkHead == NULL){
-		printf("ERROR, findFreeBlk, freeBlkHead == NULL\n");
-		exit(2);
-	}
 	//iterate through the freeblklist to check free spaces
 	free_blk* currentBlk = freeBlkHead;
 	free_blk* prev = NULL; 
@@ -141,7 +136,7 @@ void* findFreeBlk(kma_size_t size){
 	if (currentBlk->size >= size){         //2 byte   
 		freeBlkHead = currentBlk->nextFree;
 
-		if (currentBlk->size - size >=sizeof(free_blk)-4){    //sizeof(free_blk)=16   int=8 ,free_blk*=12
+		if (currentBlk->size - size >=sizeof(free_blk)){    //sizeof(free_blk)=16   int=8 ,free_blk*=12
 			addToFreeBlk((void*)currentBlk+size, currentBlk->size - size);
 		}
 		return (void*)currentBlk;
@@ -152,7 +147,7 @@ void* findFreeBlk(kma_size_t size){
 		if (currentBlk->size >= size){
 			//After found the freeblk, delete the blk in the freelist and add the rest into the freelist
 			prev->nextFree = currentBlk->nextFree;
-			if (currentBlk->size-size >=sizeof(free_blk)-4){
+			if (currentBlk->size-size >=sizeof(free_blk)){
 				addToFreeBlk((void*) currentBlk+size,currentBlk->size - size);				
 			}
 			return (void*)currentBlk;    
@@ -180,7 +175,6 @@ void* findFreeBlk(kma_size_t size){
 }
 void* kma_malloc(kma_size_t size)
 {
-	//PrintFreeList();
 	if (g_pageList==NULL){
 		g_pageList = get_page();
 		// add a pointer to the page structure at the beginning of the page
@@ -226,8 +220,7 @@ kma_page_t* checkPage(free_blk* blk){
 			currentSpace = currentPage->ptr;
 		}
 	}
-	printf("Error! The blk doesn't belong to any exist pages.\n");
-	exit(2);
+	return NULL;
 }
 
 void kma_free(void* ptr, kma_size_t size)
